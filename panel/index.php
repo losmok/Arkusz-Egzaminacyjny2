@@ -20,11 +20,12 @@
                 echo "$wiersz[0]. $wiersz[1] $wiersz[2], $wiek lat <br>";
         }
         ?>
+        <a href="settings.html" target="blank">Inne ustawienia</a>
     </div>
     <div class="prawy">
         <h4>Podaj id użytkownika</h4>
         <form action="index.php" method="post">
-            <input type="number" name="id">
+            <input type="nummber" name="id">
             <button>ZOBACZ</button>
         </form>
         <hr>
@@ -35,9 +36,12 @@
             $cos1 = mysqli_query($con, $res1);
             $wiersz1 = mysqli_fetch_array($cos1);
             echo "<h2>$id $wiersz1[0] $wiersz1[1]</h2><br>";
-            echo "<img src='$wiersz1[4]' alt='$id'><br>";
-            echo "Rok urodzenia: $wiersz1[2] <br>";
+            echo "<img src='$wiersz1[4]' alt='$id'><br><br>";
+            echo "Rok urodzenia: $wiersz1[2]<br><br>";
+            echo "Opis: $wiersz1[3]<br><br>";
+            echo "Hobby: $wiersz1[5]";
         }
+        mysqli_close($con);
         ?>
     </div>
     <div class="stopka"><p>Stronę wykonał: Paweł Lewandowski</p></div>

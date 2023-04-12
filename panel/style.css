@@ -46,6 +46,13 @@ button {
     margin: 10px;
 }
 
+input[type="number"]{
+    background-color: #AF4448;
+    color: white;
+    padding: 5px;
+    margin: 10px;
+}
+
 img { 
     height: 100px;
     width: 100px;
