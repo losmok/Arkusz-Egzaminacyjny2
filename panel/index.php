@@ -30,11 +30,14 @@
         <hr>
         <?php
         if(isset($_POST["id"])){
-            $res1 = ("SELECT id, imie, nazwisko, rok_urodzenia, opis, zdjecie FROM osoby INNER JOIN hobby ON osoby.id=hobby.id WHERE osoby.id=".$_POST["id"].";");
+            $id = $_POST["id"];
+            $res1 = "SELECT osoby.imie, osoby.nazwisko, osoby.rok_urodzenia, osoby.opis, osoby.zdjecie, hobby.nazwa FROM osoby, hobby WHERE osoby.Hobby_id=hobby.id AND osoby.id = ".$_POST["id"]."";
             $cos1 = mysqli_query($con, $res1);
-            $wynik = mysqli_fetch_array($cos1);
+            $wiersz1 = mysqli_fetch_array($cos1);
+            echo "<h2>$id $wiersz1[0] $wiersz1[1]</h2><br>";
+            echo "<img src='$wiersz1[4]' alt='$id'><br>";
+            echo "Rok urodzenia: $wiersz1[2] <br>";
         }
-        echo ();
         ?>
     </div>
     <div class="stopka"><p>Stronę wykonał: Paweł Lewandowski</p></div>
